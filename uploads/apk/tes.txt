@@ -1,1 +1,5 @@
+karena project ini akan diupload ke github, jadi link apk tidak bisa direct langsung dalam folder projet (karena apk lebih dari 25mb, walaupun kami coba kompres ke 24mb saat mengupload terkendala error 400/bad reqests).
 
+link download kami alihkan ke mediafire.com
+
+link download : https://www.mediafire.com/file/22cybhjprhfr93i/wofice.zip/file
