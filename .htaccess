@@ -1,0 +1,31 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Maintenance mode check
+    # Baca status maintenance dari file JSON
+    RewriteCond %{DOCUMENT_ROOT}/config/maintenance.json -f
+    RewriteCond %{DOCUMENT_ROOT}/config/maintenance.json -s
+    RewriteCond %{REQUEST_FILENAME} !-f
+    
+    # Redirect ALL requests EXCEPT:
+    # 1. /admin/* (admin area tetap bisa diakses)
+    # 2. /maintenance.php (file maintenance itu sendiri)
+    # 3. File statis (css, js, images, dll) - opsional
+    
+    # Pengecualian untuk admin area
+    RewriteCond %{REQUEST_URI} !^/admin/ [NC]
+    RewriteCond %{REQUEST_URI} !^/admin$ [NC]
+    
+    # Pengecualian untuk file maintenance itu sendiri
+    RewriteCond %{REQUEST_URI} !^/maintenance\.php$ [NC]
+    
+    # Pengecualian untuk file statis (biar tampilan maintenance tetap bagus)
+    RewriteCond %{REQUEST_URI} !\.(css|js|jpg|jpeg|png|gif|svg|ico|webp|woff|woff2|ttf|eot)$ [NC]
+    
+    # Redirect semua request lainnya ke maintenance.php
+    RewriteRule ^.*$ /maintenance.php [L,R=302]
+    
+</IfModule>
+
+# Jangan lupa set maintenance.json status ke "on" untuk mengaktifkan
+# Set ke "off" untuk menonaktifkan maintenance mode
