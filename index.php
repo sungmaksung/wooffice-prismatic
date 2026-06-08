@@ -15,7 +15,7 @@ $company_address = $settings['company_address'] ?? 'Cimasuk Residence, Blok G-5,
 $company_instagram = $settings['company_instagram'] ?? 'prismatic_eo_wo';
 $company_whatsapp = $settings['company_whatsapp'] ?? '6282219074421';
 $apk_version = $settings['apk_version'] ?? '1.0.0';
-$apk_file = 'uploads/apk/wofice.apk';
+$apk_file = 'uploads/apk/tes.txt';
 $apk_exists = file_exists($apk_file);
 ?>
 <!DOCTYPE html>
